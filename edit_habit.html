@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="card">
+    <h2>Edit habit</h2>
+    <form method="post">
+        <label>Habit name</label>
+        <input name="habit" value="{{ habit['name'] }}" required>
+        <button class="btn" type="submit">Save</button>
+        <a class="btn-link" href="{{ url_for('dashboard') }}">Cancel</a>
+    </form>
+</div>
+{% endblock %}
+

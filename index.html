@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="card">
+    <h2>Welcome to HabitFlow</h2>
+    <p>Simple & lightweight habit tracker built with Flask (Python) + HTML + CSS.</p>
+    {% if session.get('user_id') %}
+        <a class="btn" href="{{ url_for('dashboard') }}">Go to Dashboard</a>
+    {% else %}
+        <a class="btn" href="{{ url_for('register') }}">Register</a>
+        <a class="btn" href="{{ url_for('login') }}">Login</a>
+    {% endif %}
+</div>
+{% endblock %}
+

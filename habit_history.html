@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="card">
+    <h2>History: {{ habit['name'] }}</h2>
+
+    {% if logs %}
+        <ul class="log-list">
+        {% for l in logs %}
+            <li>{{ l['date'] }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No records yet.</p>
+    {% endif %}
+
+    <a class="btn-link" href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+</div>
+{% endblock %}
+

@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="card">
+    <h2>Statistics (last 7 days)</h2>
+    <p>Dates: {% for d in dates %}{{ d }} {% if not loop.last %} | {% endif %}{% endfor %}</p>
+
+    {% if stats %}
+        <table class="table small">
+            <thead>
+                <tr>
+                    <th>Habit</th>
+                    <th>7-day pattern (old→new)</th>
+                    <th>Total (7d)</th>
+                    <th>Current streak</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for s in stats %}
+                <tr>
+                    <td>{{ s.name }}</td>
+                    <td>
+                        {% for val in s.week_done %}
+                            {% if val %}✔{% else %}—{% endif %}
+                            {% if not loop.last %} {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>{{ s.total_done }}</td>
+                    <td>{{ s.streak }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No habits to show statistics for.</p>
+    {% endif %}
+
+    <a class="btn-link" href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+</div>
+{% endblock %}

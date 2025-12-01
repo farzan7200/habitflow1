@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="card">
+    <h2>Dashboard</h2>
+
+    <form action="{{ url_for('add') }}" method="post">
+        <label>New habit</label>
+        <input name="habit" required placeholder="e.g. Exercise">
+
+        <button class="btn" type="submit">Add</button>
+    </form>
+
+    {% if habits %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Habit</th>
+                <th>Done today</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for h in habits %}
+            <tr>
+                <td>{{ h['name'] }}</td>
+                <td>
+                    {% if done_map[h['id']] %}
+                        <span class="done">Done ✔</span>
+                    {% else %}
+                        <form method="post" action="{{ url_for('done', hid=h['id']) }}">
+                            <button class="btn small" type="submit">Mark done</button>
+                        </form>
+                    {% endif %}
+                </td>
+                <td>
+                    <a class="btn-link" href="{{ url_for('history', hid=h['id']) }}">History</a>
+                    <a class="btn-link" href="{{ url_for('edit', hid=h['id']) }}">Edit</a>
+                    <form method="post" action="{{ url_for('delete', hid=h['id']) }}" style="display:inline;">
+                        <button class="btn small danger" type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p>No habits yet — add your first habit!</p>
+    {% endif %}
+</div>
+{% endblock %}
+
