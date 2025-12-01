@@ -1,0 +1,211 @@
+/* ------------------------
+   GENERAL STYLE
+------------------------- */
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    background: #f4f7f9;
+    color: #222;
+}
+
+body.dark {
+    background: #0f1720;
+    color: #e6eef6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
+}
+
+
+/* ------------------------
+    HEADER
+------------------------- */
+
+.header {
+    background: #1f6feb;
+    padding: 12px 0;
+    color: white;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 12px;
+}
+
+
+/* Dark mode icon button */
+
+.theme-btn {
+    display: inline;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 22px;
+    margin: 0 10px;
+}
+
+body.dark .header {
+    background: #0b4a86;
+}
+
+
+/* ------------------------
+    CARD + FORMS
+------------------------- */
+
+.card {
+    background: white;
+    padding: 18px;
+    border-radius: 8px;
+    box-shadow: 0 6px 16px rgba(31,111,235,0.08);
+    margin-bottom: 16px;
+}
+
+body.dark .card {
+    background: #0b1220;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.6);
+}
+
+input[type="text"],
+input[type="password"],
+input[name="habit"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 12px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+body.dark input {
+    background: #07101a;
+    color: #e6eef6;
+    border: 1px solid #153042;
+}
+
+
+/* ------------------------
+    BUTTONS
+------------------------- */
+
+.btn {
+    background: #23a455;
+    color: white;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn.small {
+    padding: 6px 8px;
+    font-size: 13px;
+}
+
+.btn-link {
+    color: #1f6feb;
+    cursor: pointer;
+    text-decoration: underline;
+    border: none;
+    background: none;
+}
+
+body.dark .btn {
+    background: #2fa66e;
+}
+
+body.dark .btn-link {
+    color: #9bd1ff;
+}
+
+
+/* ------------------------
+    TABLE
+------------------------- */
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+}
+
+.table th, .table td {
+    padding: 10px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+body.dark .table th,
+body.dark .table td {
+    border-bottom: 1px solid #12232f;
+}
+
+.done {
+    color: #2d9a2d;
+    font-weight: bold;
+}
+
+
+/* ------------------------
+    ALERTS
+------------------------- */
+
+.alert {
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+
+.alert.success {
+    background: #e6ffef;
+    color: #05632b;
+}
+
+.alert.danger {
+    background: #ffecec;
+    color: #941b1b;
+}
+
+.alert.warning {
+    background: #fff8e6;
+    color: #6a4b00;
+}
+
+body.dark .alert.success {
+    background: #07381a;
+    color: #8df3b3;
+}
+
+
+/* ------------------------
+    FOOTER
+------------------------- */
+
+.footer {
+    text-align: center;
+    padding: 12px;
+    margin-top: 40px;
+    color: #666;
+}
+
+body.dark .footer {
+    color: #aac3d5;
+}
+
+
+
